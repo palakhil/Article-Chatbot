@@ -195,46 +195,47 @@ if question:
 
     vectorstore = st.session_state.vectorstore
 
-    retriever = vectorstore.as_retriever()
-
     retriever = vectorstore.as_retriever(
-    search_type="mmr",
-    search_kwargs={"k": 4, "fetch_k": 10}
-)
+        search_type="mmr",
+        search_kwargs={
+            "k": 4,
+            "fetch_k": 10
+        }
+    )
 
-prompt = get_prompt()
+    prompt = get_prompt()
 
-docs = retriever.invoke(question)
+    docs = retriever.invoke(question)
 
-context = "\n\n".join(doc.page_content for doc in docs)
+    context = "\n\n".join(doc.page_content for doc in docs)
 
-chain = (
-    prompt
-    | llm
-    | StrOutputParser()
-)
+    chain = (
+        prompt
+        | llm
+        | StrOutputParser()
+    )
 
-with st.spinner("Generating answer..."):
-    try:
-        answer = chain.invoke(
-            {
-                "context": context,
-                "input": question
-            }
-        )
-    except Exception as e:
-        st.error(f"Error: {e}")
-        st.stop()
+    with st.spinner("Generating answer..."):
+        try:
+            answer = chain.invoke(
+                {
+                    "context": context,
+                    "input": question
+                }
+            )
+        except Exception as e:
+            st.error(f"Error: {e}")
+            st.stop()
 
-st.header("Answer")
-st.write(answer)
+    st.header("Answer")
+    st.write(answer)
 
-with st.expander("Sources"):
-    seen = set()
+    with st.expander("Sources"):
+        seen = set()
 
-    for doc in docs:
-        source = doc.metadata.get("source", "Unknown")
+        for doc in docs:
+            source = doc.metadata.get("source", "Unknown")
 
-        if source not in seen:
-            seen.add(source)
-            st.markdown(f"• {source}")
+            if source not in seen:
+                seen.add(source)
+                st.markdown(f"• {source}")
