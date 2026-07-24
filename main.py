@@ -29,7 +29,7 @@ os.environ["GROQ_API_KEY"] = st.secrets["GROQ_API_KEY"]
 # STREAMLIT UI
 # -------------------------------------------------------
 
-st.set_page_config(page_title="RockyBot", page_icon="📈")
+st.set_page_config(page_title="RAG ChatBot", page_icon="📈")
 
 st.title("📈 RockyBot - News Research Tool")
 
