@@ -31,7 +31,7 @@ os.environ["GROQ_API_KEY"] = st.secrets["GROQ_API_KEY"]
 
 st.set_page_config(page_title="RAG ChatBot", page_icon="📈")
 
-st.title("📈 RockyBot - News Research Tool")
+st.title("📈 RAG ChatBot - News Research Tool")
 
 st.sidebar.header("News URLs")
 
