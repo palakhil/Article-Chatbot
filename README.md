@@ -1,4 +1,4 @@
-# 📈 RockyBot – AI News Research Assistant
+# 📈 RAG ChatBot – AI News Research Assistant
 
 RockyBot is a Retrieval-Augmented Generation (RAG) application that allows users to analyze multiple news articles and ask natural language questions about their content.
 
