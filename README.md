@@ -6,6 +6,18 @@ The application extracts text from news URLs, generates semantic embeddings, sto
 
 ---
 
+# 🚀 Live Demo
+
+🔗 **Application:** https://article-chatbot-f5sszw23cfzxtru5xgk7yz.streamlit.app
+
+Try the application live to:
+- 🌐 Process news article URLs
+- 🤖 Ask questions about the articles
+- 📚 Retrieve context-aware answers using RAG
+- 🔍 View the article sources used for generating responses
+
+--
+
 ## 🚀 Features
 
 - 🌐 Load and analyze up to 3 news article URLs
